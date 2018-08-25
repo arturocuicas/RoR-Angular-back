@@ -5,7 +5,10 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
     @family_goal = FamilyGoal.all
-    render json: { user: @users, @family_goal }, status: :ok
+    render json: {
+      user: @users,
+      familyGoal: @family_goal
+    }, status: :ok
   end
 
  # POST /users
@@ -76,7 +79,8 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :position, :area, :world, :family_goal_id)
+      params.require(:user).permit(:name, :position, :area, :world,
+        :family_goal_id)
     end
 
 end
