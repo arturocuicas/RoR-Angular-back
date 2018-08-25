@@ -1,0 +1,2 @@
+class FamilyGoal < ApplicationRecord
+end
